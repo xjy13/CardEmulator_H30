@@ -12,5 +12,5 @@ public interface AIDInfo {
     String UPDATE_APDU_HEADER_CLA_INS_P1_P2 = "00B40400";
     String TEST_APDU_HEADER_CLA_INS_P1_P2 =   "00C40400";
     String ON_DUTY_TIME = "ON_DUTY_TIME";
-    String OFF_DUTY_TIME = "OFF_DUTY_TIME";
+//    String OFF_DUTY_TIME = "OFF_DUTY_TIME";
 }

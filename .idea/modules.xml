@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Application/Application.iml" filepath="$PROJECT_DIR$/Application/Application.iml" />
-      <module fileurl="file://$PROJECT_DIR$/android-CardEmulation-master.iml" filepath="$PROJECT_DIR$/android-CardEmulation-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CardEmulator_H30.iml" filepath="$PROJECT_DIR$/CardEmulator_H30.iml" />
     </modules>
   </component>
 </project>
