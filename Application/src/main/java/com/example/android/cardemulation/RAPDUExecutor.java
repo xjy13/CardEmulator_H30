@@ -35,32 +35,35 @@ public class RAPDUExecutor {
             byte[] accountBytes = account.getBytes();
             Log.i(TAG, "Sending account number: " + account);
             return ConcatArrays(accountBytes, Utils.textToByteArray(String.valueOf(AIDInfo.CMD_SUCCESS)));
-        } else if (Arrays.equals(BuildSelectApdu(SAMPLE_TEST_AID), commandApdu)) {
-
+        }
+        if (Arrays.equals(BuildSelectApdu(SAMPLE_TEST_AID), commandApdu)) {
             punchTime = punchTimeCache.getLong(AIDInfo.ON_DUTY_TIME, -1);
             if (punchTime != -1) {
                 long currentTime = TimeUtils.timeStamp();
                 long workingTime = currentTime - punchTime;
                 if (workingTime < 28800000) {
-                    isOnDuty = "Go back to your cube!!";
+                  //  Log.d(TAG,"working time: "+TimeUtils.ms2HMS(workingTime));
+                    isOnDuty = "Working time: "+TimeUtils.ms2HMS(workingTime);
                     return ConcatArrays(isOnDuty.getBytes(), Utils.textToByteArray(String.valueOf(AIDInfo.CMD_CUSTOMER_STATUS_CODE)));
                 } else {
-                    isOnDuty = "Off Duty";
-                    String offDutyTime = TimeUtils.getTime(TimeUtils.TimeType.YMDHm);
-                    String payload = isOnDuty + offDutyTime + "Chihyuj";
+                    isOnDuty = "Off Duty: ";
+                    String offDutyTime = TimeUtils.getTime(TimeUtils.TimeType.YMDHmS);
+                    String payload = isOnDuty + offDutyTime + "-hsuj";
                     punchTimeCache.edit().clear().apply();
                     punchTime = 0;
                     return ConcatArrays(payload.getBytes(), Utils.textToByteArray(String.valueOf(AIDInfo.CMD_SUCCESS)));
                 }
             } else {
                 punchTimeCache.edit().putLong(AIDInfo.ON_DUTY_TIME, TimeUtils.timeStamp()).apply();
-                isOnDuty = "Punch Time";
-                String punchTime = TimeUtils.getTime(TimeUtils.TimeType.YMDHm);
-                String payload = isOnDuty + punchTime + "Chinyuj";
+                isOnDuty = "Punch Time: ";
+                String punchTime = TimeUtils.getTime(TimeUtils.TimeType.YMDHmS);
+                String payload = isOnDuty + punchTime + "-hsuj";
                 return ConcatArrays(payload.getBytes(), Utils.textToByteArray(String.valueOf(AIDInfo.CMD_SUCCESS)));
             }
             //return ConcatArrays("haha".getBytes(),Utils.textToByteArray(String.valueOf(AIDInfo.CMD_SUCCESS)));
-        } else {
+        }
+
+        else {
             String txt = "no_this_aid";
             return ConcatArrays(txt.getBytes(), Utils.textToByteArray(AIDInfo.CMD_UNKNOWN));
         }

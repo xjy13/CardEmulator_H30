@@ -1,4 +1,4 @@
-#Sat Sep 21 15:36:11 CST 2019
-base.0=/Users/hsuj/Documents/HCE_SampleCode/android-CardEmulation-master/Application/build/intermediates/transforms/dexMerger/debug/1
+#Sat Sep 21 17:49:10 CST 2019
+base.0=/Users/hsuj/Documents/CardEmulator_H30/Application/build/intermediates/transforms/dexMerger/debug/1
 path.0=classes.dex
 renamed.0=classes.dex

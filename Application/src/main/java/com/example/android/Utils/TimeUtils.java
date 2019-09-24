@@ -1,11 +1,12 @@
 package com.example.android.Utils;
 
+import android.annotation.SuppressLint;
+
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-
-
+import java.util.concurrent.TimeUnit;
 
 
 public class TimeUtils {
@@ -53,5 +54,12 @@ public class TimeUtils {
     public static long timeStamp() {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         return timestamp.getTime();
+    }
+
+    public static String ms2HMS(long ms) {
+        @SuppressLint("DefaultLocale") String hms = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(ms),
+                TimeUnit.MILLISECONDS.toMinutes(ms) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(ms)),
+                TimeUnit.MILLISECONDS.toSeconds(ms) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(ms)));
+        return hms;
     }
 }
