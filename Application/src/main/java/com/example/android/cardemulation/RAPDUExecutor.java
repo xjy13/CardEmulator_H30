@@ -28,19 +28,17 @@ public class RAPDUExecutor {
 
     static synchronized void implementRAPDU(byte[] commandApdu, Context context, RapduCallback callback) {
         punchTimeCache = PreferenceManager.getDefaultSharedPreferences(context);
-        byte[] rapdu;
         if (punchTimeCache == null) {
             callback.onDone(ConcatArrays("CardBroken".getBytes(), Utils.textToByteArray(String.valueOf(AIDInfo.CMD_CARD_BROKEN))));
         }
         Log.d(TAG, "commandApdu: " + Utils.byte2hex(commandApdu));
-        String comingAID = Utils.byte2hex(commandApdu).substring(10,20);
+        String comingAID = Utils.byte2hex(commandApdu).substring(10, 20);
         if (comingAID.equals(SAMPLE_LOYALTY_CARD_AID)) {
             String account = AccountStorage.GetAccount(context);
             byte[] accountBytes = account.getBytes();
             Log.i(TAG, "Sending account number: " + account);
             callback.onDone(ConcatArrays(accountBytes, Utils.textToByteArray(String.valueOf(AIDInfo.CMD_SUCCESS))));
-        }
-        if (comingAID.equals(SAMPLE_TEST_AID)) {
+        } else if (comingAID.equals(SAMPLE_TEST_AID)) {
             punchTime = punchTimeCache.getLong(AIDInfo.ON_DUTY_TIME, -1);
             if (punchTime != -1) {
                 long currentTime = TimeUtils.timeStamp();
@@ -64,12 +62,10 @@ public class RAPDUExecutor {
                 String payload = isOnDuty + punchTime + "overtime" + overTime;
                 callback.onDone(ConcatArrays(payload.getBytes(), Utils.textToByteArray(String.valueOf(AIDInfo.CMD_SUCCESS))));
             }
-        }
-        //blow need to fix L:71
-        else {
+        } else {
             String txt = "no_this_aid";
-            Log.d(TAG,"not 0x90: "+Utils.byte2hex(commandApdu));
-          //  callback.onDone(ConcatArrays(txt.getBytes(), Utils.textToByteArray(AIDInfo.CMD_UNKNOWN)));
+            Log.d(TAG, "not 0x90: " + Utils.byte2hex(commandApdu));
+            callback.onDone(ConcatArrays(txt.getBytes(), Utils.textToByteArray(AIDInfo.CMD_UNKNOWN)));
         }
     }
 

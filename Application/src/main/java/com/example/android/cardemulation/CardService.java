@@ -16,13 +16,14 @@
 
 package com.example.android.cardemulation;
 
+import android.app.Service;
 import android.nfc.cardemulation.HostApduService;
 import android.os.Bundle;
 
 import com.example.android.Utils.Utils;
 import com.example.android.callback.RapduCallback;
 import com.example.android.common.logger.Log;
-
+import android.os.Vibrator;
 import java.util.Arrays;
 
 /**
@@ -92,6 +93,8 @@ public class CardService extends HostApduService {
             public void onDone(byte[] result) {
                 Log.d(TAG, "RAPDU: " + Utils.byte2hex(result));
                 rapdu = result;
+                Vibrator mVibrator = (Vibrator) getSystemService(Service.VIBRATOR_SERVICE);
+                mVibrator.vibrate(300);
             }
 
             @Override

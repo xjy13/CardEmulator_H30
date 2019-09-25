@@ -1,8 +1,8 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:18:1-63:12
-INJECTED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:18:1-63:12
-INJECTED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:18:1-63:12
+ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:18:1-65:12
+INJECTED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:18:1-65:12
+INJECTED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:18:1-65:12
 MERGED from [com.android.support:support-v13:28.0.0] /Users/hsuj/.gradle/caches/transforms-1/files-1.1/support-v13-28.0.0.aar/88d872aca207a6cd5c45a0885f6ba6b2/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-v4:28.0.0] /Users/hsuj/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/41ed11dcfa9195a07d10a6987ad27047/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:cardview-v7:28.0.0] /Users/hsuj/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/80747ba4bb9a5f3e9a5cff570fa2f94e/AndroidManifest.xml:17:1-22:12
@@ -33,8 +33,8 @@ MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/hsuj/.gradle/caches/
 MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/hsuj/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/a292ec41e692db962491de52e9ecc256/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/hsuj/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/9333e5cd62f914cdb24c2ad735dea419/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.1] /Users/hsuj/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/a53c20dba3c6f7968c9008277385128d/AndroidManifest.xml:17:1-22:12
-INJECTED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:18:1-63:12
-INJECTED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:18:1-63:12
+INJECTED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:18:1-65:12
+INJECTED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:18:1-65:12
 	package
 		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:20:5-48
 	android:versionName
@@ -59,8 +59,12 @@ uses-permission#android.permission.NFC
 ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:27:5-62
 	android:name
 		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:27:22-59
+uses-permission#android.permission.VIBRATE
+ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:29:5-66
+	android:name
+		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:29:22-63
 application
-ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:29:5-60:19
+ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:31:5-62:19
 MERGED from [com.android.support:support-compat:28.0.0] /Users/hsuj/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/ee707f3ae118685f8e027adb43c1877d/AndroidManifest.xml:22:5-94
 MERGED from [com.android.support:support-compat:28.0.0] /Users/hsuj/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/ee707f3ae118685f8e027adb43c1877d/AndroidManifest.xml:22:5-94
 MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/hsuj/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/93878a401b967d42c7e4966efb5f08bc/AndroidManifest.xml:22:5-23:19
@@ -68,55 +72,55 @@ MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/hsuj/.gradle
 	android:appComponentFactory
 		ADDED from [com.android.support:support-compat:28.0.0] /Users/hsuj/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/ee707f3ae118685f8e027adb43c1877d/AndroidManifest.xml:22:18-91
 	android:label
-		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:30:9-41
+		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:32:9-41
 	tools:ignore
-		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:33:9-48
+		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:35:9-48
 	android:icon
-		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:31:9-45
+		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:33:9-45
 	android:allowBackup
-		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:29:18-44
+		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:31:18-44
 	android:theme
-		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:32:9-40
+		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:34:9-40
 activity#com.example.android.cardemulation.MainActivity
-ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:36:9-42:20
+ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:38:9-44:20
 	android:label
-		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:37:19-51
+		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:39:19-51
 	android:name
-		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:36:19-47
+		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:38:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:38:13-41:29
+ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:40:13-43:29
 action#android.intent.action.MAIN
-ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:39:17-69
+ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:41:17-69
 	android:name
-		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:39:25-66
+		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:41:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:40:17-77
+ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:42:17-77
 	android:name
-		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:40:27-74
+		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:42:27-74
 service#com.example.android.cardemulation.CardService
-ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:46:9-58:19
+ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:48:9-60:19
 	android:exported
-		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:47:18-41
+		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:49:18-41
 	android:permission
-		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:48:18-74
+		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:50:18-74
 	android:name
-		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:46:18-45
+		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:48:18-45
 intent-filter#action:name:android.nfc.cardemulation.action.HOST_APDU_SERVICE+category:name:android.intent.category.DEFAULT
-ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:50:13-53:29
+ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:52:13-55:29
 action#android.nfc.cardemulation.action.HOST_APDU_SERVICE
-ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:51:17-92
+ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:53:17-92
 	android:name
-		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:51:25-90
+		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:53:25-90
 category#android.intent.category.DEFAULT
-ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:52:17-75
+ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:54:17-75
 	android:name
-		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:52:27-73
+		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:54:27-73
 meta-data#android.nfc.cardemulation.host_apdu_service
-ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:56:13-57:58
+ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:58:13-59:58
 	android:resource
-		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:57:24-56
+		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:59:24-56
 	android:name
-		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:56:24-82
+		ADDED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml:58:24-82
 uses-sdk
 INJECTED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/hsuj/Documents/CardEmulator_H30/Application/src/main/AndroidManifest.xml
