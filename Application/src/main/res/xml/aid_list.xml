@@ -64,14 +64,6 @@ limitations under the License.
         <aid-filter android:name="F111111111" />
     </aid-group>
 
-    <!--<aid-group-->
-        <!--android:category="test"-->
-        <!--android:description="@string/card_title">-->
-        <!--<aid-filter android:name="E000000000" />-->
-        <!--&lt;!&ndash;<aid-filter android:name="F111111111" />&ndash;&gt;-->
-    <!--</aid-group>-->
-
-
     <!--<aid-group android:description="TESTXD" android:category="other">-->
     <!--<aid-filter android:name="Z000000000"/>-->
     <!--</aid-group>-->

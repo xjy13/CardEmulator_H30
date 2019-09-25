@@ -7,22 +7,22 @@
     format="10"
     ir-eligibility="COMPATIBLE"
     plugin-version="3.3.2"
-    timestamp="1569293569900"
+    timestamp="1569397398211"
     token="2726133046371712281"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="191" />
+        duration="109" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="33" />
+        duration="13" />
     <task
         name="verifier"
-        duration="40" />
+        duration="21" />
 
     <artifact
         location="/Users/hsuj/Documents/CardEmulator_H30/Application/build/intermediates/split-apk/debug/slices/slice_8.apk"
@@ -30,11 +30,8 @@
 
     <build
         build-mode="FULL"
-        timestamp="1569293461197"
+        timestamp="1569395096146"
         verifier="FULL_BUILD_REQUESTED" >
-        <artifact
-            location="/Users/hsuj/Documents/CardEmulator_H30/Application/build/intermediates/split-apk/debug/slices/slice_9.apk"
-            type="SPLIT" />
         <artifact
             location="/Users/hsuj/Documents/CardEmulator_H30/Application/build/intermediates/split-apk/debug/slices/slice_8.apk"
             type="SPLIT" />
@@ -49,6 +46,9 @@
             type="SPLIT" />
         <artifact
             location="/Users/hsuj/Documents/CardEmulator_H30/Application/build/intermediates/split-apk/debug/dep/dependencies.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/hsuj/Documents/CardEmulator_H30/Application/build/intermediates/split-apk/debug/slices/slice_9.apk"
             type="SPLIT" />
         <artifact
             location="/Users/hsuj/Documents/CardEmulator_H30/Application/build/intermediates/split-apk/debug/slices/slice_4.apk"
@@ -75,7 +75,7 @@
     <build
         build-mode="COLD"
         ir-eligibility="COMPATIBLE"
-        timestamp="1569293569900"
+        timestamp="1569397398211"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/Users/hsuj/Documents/CardEmulator_H30/Application/build/intermediates/split-apk/debug/slices/slice_8.apk"

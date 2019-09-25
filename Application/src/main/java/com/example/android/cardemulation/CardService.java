@@ -20,6 +20,7 @@ import android.nfc.cardemulation.HostApduService;
 import android.os.Bundle;
 
 import com.example.android.Utils.Utils;
+import com.example.android.callback.RapduCallback;
 import com.example.android.common.logger.Log;
 
 import java.util.Arrays;
@@ -27,14 +28,14 @@ import java.util.Arrays;
 /**
  * This is a sample APDU Service which demonstrates how to interface with the card emulation support
  * added in Android 4.4, KitKat.
- *
+ * <p>
  * <p>This sample replies to any requests sent with the string "Hello World". In real-world
  * situations, you would need to modify this code to implement your desired communication
  * protocol.
- *
+ * <p>
  * <p>This sample will be invoked for any terminals selecting AIDs of 0xF11111111, 0xF22222222, or
  * 0xF33333333. See src/main/res/xml/aid_list.xml for more details.
- *
+ * <p>
  * <p class="note">Note: This is a low-level interface. Unlike the NdefMessage many developers
  * are familiar with for implementing Android Beam in apps, card emulation only provides a
  * byte-array based communication channel. It is left to developers to implement higher level
@@ -42,26 +43,8 @@ import java.util.Arrays;
  */
 public class CardService extends HostApduService {
     private static final String TAG = "CardService";
-    // AID for our loyalty card service.
-//    private static final String SAMPLE_LOYALTY_CARD_AID = "F111111111"; //F222222222
-//    private static final String SAMPLE_TEST_AID = "E000000000";
-//    private static final String ANDROID_TEST_AID = "F0010203040506";
-    // ISO-DEP command HEADER for selecting an AID.
-    // Format: [Class | Instruction | Parameter 1 | Parameter 2]
-//    private static final String SELECT_APDU_HEADER_CLA_INS_P1_P2 = "00A40400"; //00A40400
-//    private static final String UPDATE_APDU_HEADER_CLA_INS_P1_P2 = "00B40400";
-//    private static final String TEST_APDU_HEADER_CLA_INS_P1_P2 = "00C40400";
-    // "OK" status word sent in response to SELECT AID command (0x9000)
-//    private static final byte[] SELECT_OK_SW = Utils.textToByteArray("9000");
-    // "UNKNOWN" status word sent in response to invalid APDU command (0x0000)
-//    private static final byte[] UNKNOWN_CMD_SW = Utils.textToByteArray("0000");
-//    private static final byte[] TEST_RAPDU_STATUSCODE = Utils.textToByteArray("9487");
-//    private static final byte[] SELECT_APDU = BuildSelectApdu(SAMPLE_LOYALTY_CARD_AID);
-//    private static final byte[] TEST_APDU = BuildSelectApdu(SAMPLE_TEST_AID);
-//    private static final byte[] ANDROID_APDU = BuildSelectApdu(ANDROID_TEST_AID);
-
-
-
+    private byte[] rapdu;
+    private static final byte[] TEST_RAPDU_ERRORCODE = Utils.textToByteArray("6E88");
 
 
     /**
@@ -81,11 +64,11 @@ public class CardService extends HostApduService {
      * response APDU can be provided directly by returning a byte-array in this method. In general
      * response APDUs must be sent as quickly as possible, given the fact that the user is likely
      * holding his device over an NFC reader when this method is called.
-     *
+     * <p>
      * <p class="note">If there are multiple services that have registered for the same AIDs in
      * their meta-data entry, you will only get called if the user has explicitly selected your
      * service, either as a default or just for the next tap.
-     *
+     * <p>
      * <p class="note">This method is running on the main thread of your application. If you
      * cannot return a response APDU immediately, return null and use the {@link
      * #sendResponseApdu(byte[])} method later.
@@ -99,15 +82,24 @@ public class CardService extends HostApduService {
     @Override
     public byte[] processCommandApdu(byte[] commandApdu, Bundle extras) {
         // Log.d(TAG,"extras: "+extras.toString());
+
         if (extras != null) {
             Log.i(TAG, "extras: " + extras.toString());
         }
-        Log.i(TAG, "Received APDU: " + Utils.byte2hex(commandApdu));
-        byte[] rapduForReader;
-        rapduForReader = RAPDUExecutor.testRAPDU(commandApdu,CardService.this);
-        Log.d(TAG,"RAPDU: "+Utils.byte2hex(rapduForReader));
-        return rapduForReader;
-    }
-    // END_INCLUDE(processCommandApdu)
+        Log.d(TAG, "Received APDU: " + Utils.byte2hex(commandApdu));
+        RAPDUExecutor.implementRAPDU(commandApdu, CardService.this, new RapduCallback() {
+            @Override
+            public void onDone(byte[] result) {
+                Log.d(TAG, "RAPDU: " + Utils.byte2hex(result));
+                rapdu = result;
+            }
 
+            @Override
+            public void onError(Exception e) {
+                e.printStackTrace();
+                rapdu = TEST_RAPDU_ERRORCODE;
+            }
+        });
+        return rapdu;
+    }
 }
