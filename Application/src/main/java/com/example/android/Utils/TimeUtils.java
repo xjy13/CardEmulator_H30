@@ -17,7 +17,6 @@ public class TimeUtils {
         YMDHm,
         Hm,
         YMD
-
     }
 
     public static String getTime(TimeType type) {

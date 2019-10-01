@@ -23,7 +23,9 @@ import android.os.Bundle;
 import com.example.android.Utils.Utils;
 import com.example.android.callback.RapduCallback;
 import com.example.android.common.logger.Log;
+
 import android.os.Vibrator;
+
 import java.util.Arrays;
 
 /**
@@ -103,6 +105,7 @@ public class CardService extends HostApduService {
                 rapdu = TEST_RAPDU_ERRORCODE;
             }
         });
+        sendResponseApdu(rapdu);
         return rapdu;
     }
 }
