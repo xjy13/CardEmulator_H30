@@ -3,68 +3,80 @@ package com.example.android.WebApi;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
 
-public class JSONHandler extends AsyncTask<String, Void, String> {
-    private String TAG = "JSONHandler";
+public class JSONHandler extends AsyncTask<Void, Void, Void> {
+    private final String TAG = "JSONHandler";
+
+    private HttpURLConnection conn;
+    private BufferedReader reader;
+    private String TestURL = "https://jsonplaceholder.typicode.com/todos/1";
+
 
     @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
-    }
-
-    @Override
-    protected String doInBackground(String... strings) {
-        //改寫這邊,呼叫方法時可以傳進多個String,所以這邊改抓params
-
-        String UrlLocation = "https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/"; //API位置
-        String PostData = "Taipei/706?$top=1&$format=JSON"; //要傳資料
-
-        HttpURLConnection conn = null;
-        StringBuilder sb = new StringBuilder();
+    protected Void doInBackground(Void... voids) {
         try {
-            URL Url = new URL(UrlLocation);
-            conn = (HttpURLConnection) Url.openConnection();
-            conn.setRequestMethod("POST"); //要呼意的方式 Get Or Post
-            conn.setDoInput(true);
-            conn.setDoOutput(true);
-            conn.connect();
-            //開始傳輸資料過去給API
-            OutputStream Output = conn.getOutputStream();
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(Output, StandardCharsets.UTF_8));
-            writer.write(PostData);
-            writer.flush();
-            writer.close();
-            Output.close();
-
-            //讀取API回傳的值
-            BufferedReader br = new BufferedReader(new InputStreamReader(
-                    conn.getInputStream(), StandardCharsets.UTF_8));
-
-            String line;
-            while ((line = br.readLine()) != null) {
-                sb.append(line);
-            }
-        } catch (Exception ex) {
-            Log.e("API_Post", ex.getMessage());
-        } finally {
-            if (conn != null)
-                conn.disconnect();
+            Log.i(TAG,"get data in bg");
+            getJson();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-
-        return sb.toString();
+        return null;
     }
 
-    @Override
-    protected void onPostExecute(String Result) {
-        Log.d(TAG,"json result: "+Result);
-        super.onPostExecute(Result);
+    private void getJson() throws InterruptedException {
+        try {
+            URL url = new URL(TestURL);
+            conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setUseCaches(false);
+            conn.setAllowUserInteraction(false);
+            conn.setConnectTimeout(60000);
+            conn.setReadTimeout(60000);
+            conn.connect();
+            int statusCode = conn.getResponseCode();
+            Log.d(TAG, "status code: " + statusCode);
+
+            if (statusCode == 200) {
+                InputStream is = conn.getInputStream();
+                reader = new BufferedReader(new InputStreamReader(is));
+                StringBuilder sb = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    sb.append(line);
+                }
+                Log.d(TAG, "resp: " + sb.toString());
+                try {
+                    JSONObject jsonObject = new JSONObject(sb.toString());
+                    Log.d(TAG,"json object: "+jsonObject.getString("title"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }else {
+                Log.e(TAG,"status code: "+statusCode);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (conn != null) {
+                conn.disconnect();
+            }
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
+
 }

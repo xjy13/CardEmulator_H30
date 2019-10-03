@@ -31,6 +31,7 @@
 
     <uses-permission android:name="android.permission.NFC" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -73,6 +74,10 @@
                 android:name="android.nfc.cardemulation.host_apdu_service"
                 android:resource="@xml/aid_list" />
         </service>
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
         <!-- END_INCLUDE(CardEmulationManifest) -->
         <provider
             android:name="com.android.tools.ir.server.InstantRunContentProvider"

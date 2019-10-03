@@ -18,11 +18,13 @@
 package com.example.android.cardemulation;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ViewAnimator;
 
+import com.example.android.WebApi.JSONHandler;
 import com.example.android.common.activities.SampleActivityBase;
 import com.example.android.common.logger.Log;
 import com.example.android.common.logger.LogFragment;
@@ -54,6 +56,20 @@ public class MainActivity extends SampleActivityBase {
             transaction.replace(R.id.sample_content_fragment, fragment);
             transaction.commit();
         }
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+
+new Handler().postDelayed(new Runnable() {
+    @Override
+    public void run() {
+
+            new JSONHandler().execute();
+    }
+},1000);
+
     }
 
     @Override
