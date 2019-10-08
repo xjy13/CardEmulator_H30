@@ -2,14 +2,17 @@ package com.example.android.cardemulation;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 
 import com.example.android.Utils.TimeUtils;
 import com.example.android.Utils.Utils;
+import com.example.android.WebApi.JSONHandler;
 import com.example.android.callback.RapduCallback;
 import com.example.android.common.logger.Log;
 
 import java.util.Arrays;
+import java.util.concurrent.ExecutionException;
 
 import static com.example.android.cardemulation.AIDInfo.ANDROID_TEST_AID;
 import static com.example.android.cardemulation.AIDInfo.SAMPLE_LOYALTY_CARD_AID;
@@ -35,6 +38,24 @@ public class RAPDUExecutor {
         String comingAID = Utils.byte2hex(commandApdu).substring(10, 20);
         if (comingAID.equals(SAMPLE_LOYALTY_CARD_AID)) {
             String account = AccountStorage.GetAccount(context);
+//            new Handler().postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//                    try {
+//                        Log.d(TAG,"JJJJ: "+);
+//                    } catch (ExecutionException | InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }, 100);
+
+            try {
+                String res = new JSONHandler(String.valueOf(Integer.valueOf(account) % 10)).execute().get();
+                account = account + res;
+            } catch (ExecutionException | InterruptedException e) {
+                e.printStackTrace();
+            }
+
             byte[] accountBytes = account.getBytes();
             Log.i(TAG, "Sending account number: " + account);
             callback.onDone(ConcatArrays(accountBytes, Utils.textToByteArray(String.valueOf(AIDInfo.CMD_SUCCESS))));

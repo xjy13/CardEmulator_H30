@@ -31,6 +31,8 @@ import com.example.android.common.logger.LogFragment;
 import com.example.android.common.logger.LogWrapper;
 import com.example.android.common.logger.MessageOnlyLogFilter;
 
+import java.util.concurrent.ExecutionException;
+
 /**
  * A simple launcher activity containing a summary sample description, sample log and a custom
  * {@link android.support.v4.app.Fragment} which can display a view.
@@ -61,14 +63,6 @@ public class MainActivity extends SampleActivityBase {
     @Override
     protected void onStart(){
         super.onStart();
-
-new Handler().postDelayed(new Runnable() {
-    @Override
-    public void run() {
-
-            new JSONHandler().execute();
-    }
-},1000);
 
     }
 

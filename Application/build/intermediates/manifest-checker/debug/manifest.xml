@@ -21,7 +21,7 @@
 
     <uses-sdk
         android:minSdkVersion="19"
-        android:targetSdkVersion="28" />
+        android:targetSdkVersion="29" />
 
     <!-- Card emulation was introduced in API 19. -->
     <!-- Min/target SDK versions (<uses-sdk>) managed by build.gradle -->

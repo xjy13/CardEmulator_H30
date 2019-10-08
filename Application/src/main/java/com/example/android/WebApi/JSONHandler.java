@@ -13,28 +13,38 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class JSONHandler extends AsyncTask<Void, Void, Void> {
+public class JSONHandler extends AsyncTask<Void, Void, String> {
     private final String TAG = "JSONHandler";
-
+    private String comeString;
     private HttpURLConnection conn;
     private BufferedReader reader;
-    private String TestURL = "https://jsonplaceholder.typicode.com/todos/1";
+    private final String TestURL = "https://jsonplaceholder.typicode.com/todos/";
 
+    public JSONHandler(String comeString) {
+        this.comeString = comeString;
+    }
 
     @Override
-    protected Void doInBackground(Void... voids) {
+    protected String doInBackground(Void... voids) {
+        String jsonResult = null;
         try {
-            Log.i(TAG,"get data in bg");
-            getJson();
+            Log.i(TAG, "get data in bg");
+            jsonResult = getJson();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return null;
+        return jsonResult;
     }
 
-    private void getJson() throws InterruptedException {
+    @Override
+    protected void onPostExecute(String res) {
+        super.onPostExecute(res);
+    }
+
+    private String getJson() throws InterruptedException {
+        String jsonString = null;
         try {
-            URL url = new URL(TestURL);
+            URL url = new URL(TestURL + comeString);
             conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setUseCaches(false);
@@ -56,12 +66,14 @@ public class JSONHandler extends AsyncTask<Void, Void, Void> {
                 Log.d(TAG, "resp: " + sb.toString());
                 try {
                     JSONObject jsonObject = new JSONObject(sb.toString());
-                    Log.d(TAG,"json object: "+jsonObject.getString("title"));
+                    Log.d(TAG, "json object: " + jsonObject.getString("title"));
+                    jsonString = jsonObject.getString("title");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-            }else {
-                Log.e(TAG,"status code: "+statusCode);
+            } else {
+                Log.w(TAG, "get json error --> status code: " + statusCode);
+                jsonString = String.valueOf("HTTP:"+statusCode);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -77,6 +89,7 @@ public class JSONHandler extends AsyncTask<Void, Void, Void> {
                 }
             }
         }
+        return jsonString;
     }
 
 }

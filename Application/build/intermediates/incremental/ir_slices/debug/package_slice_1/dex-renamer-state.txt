@@ -1,4 +1,4 @@
-#Thu Oct 03 16:08:15 CST 2019
+#Sat Oct 05 16:51:24 CST 2019
 base.0=/Users/hsuj/Documents/CardEmulator_H30/Application/build/intermediates/transforms/dexMerger/debug/1
 path.0=classes.dex
 renamed.0=classes.dex
