@@ -5,28 +5,36 @@
     build-mode="COLD"
     density="xhdpi"
     format="10"
+    ir-eligibility="COMPATIBLE"
     plugin-version="3.3.2"
-    timestamp="1570526301861"
+    timestamp="1570613689250"
     token="2726133046371712281"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="126" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="58" />
     <task
         name="verifier"
-        duration="0" />
+        duration="41" />
+
+    <artifact
+        location="/Users/hsuj/Documents/CardEmulator_H30/Application/build/intermediates/split-apk/debug/slices/slice_0.apk"
+        type="SPLIT" />
 
     <build
         build-mode="FULL"
-        timestamp="1570521135118"
+        timestamp="1570613607473"
         verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="/Users/hsuj/Documents/CardEmulator_H30/Application/build/intermediates/split-apk/debug/slices/slice_0.apk"
+            type="SPLIT" />
         <artifact
             location="/Users/hsuj/Documents/CardEmulator_H30/Application/build/intermediates/split-apk/debug/slices/slice_7.apk"
             type="SPLIT" />
@@ -52,9 +60,6 @@
             location="/Users/hsuj/Documents/CardEmulator_H30/Application/build/intermediates/split-apk/debug/slices/slice_5.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/hsuj/Documents/CardEmulator_H30/Application/build/intermediates/split-apk/debug/slices/slice_0.apk"
-            type="SPLIT" />
-        <artifact
             location="/Users/hsuj/Documents/CardEmulator_H30/Application/build/intermediates/split-apk/debug/slices/slice_3.apk"
             type="SPLIT" />
         <artifact
@@ -69,25 +74,12 @@
     </build>
     <build
         build-mode="COLD"
-        ir-eligibility="FIELD_TYPE_CHANGE"
-        timestamp="1570525345319"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="/Users/hsuj/Documents/CardEmulator_H30/Application/build/intermediates/split-apk/debug/slices/slice_8.apk"
-            type="SPLIT" />
-    </build>
-    <build
-        build-mode="COLD"
         ir-eligibility="COMPATIBLE"
-        timestamp="1570526117314"
+        timestamp="1570613689250"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/Users/hsuj/Documents/CardEmulator_H30/Application/build/intermediates/split-apk/debug/slices/slice_0.apk"
             type="SPLIT" />
     </build>
-    <build
-        build-mode="COLD"
-        timestamp="1570526301861"
-        verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>

@@ -11,6 +11,7 @@ import com.example.android.WebApi.JSONHandler;
 import com.example.android.callback.RapduCallback;
 import com.example.android.common.logger.Log;
 
+import java.security.SignatureException;
 import java.util.Arrays;
 import java.util.concurrent.ExecutionException;
 
@@ -52,7 +53,7 @@ public class RAPDUExecutor {
             try {
                 String res = new JSONHandler(String.valueOf(Integer.valueOf(account) % 10)).execute().get();
                 account = account + res;
-            } catch (ExecutionException | InterruptedException e) {
+            } catch (ExecutionException | InterruptedException | SignatureException e) {
                 e.printStackTrace();
             }
 

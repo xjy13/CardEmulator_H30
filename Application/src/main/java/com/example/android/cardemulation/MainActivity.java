@@ -31,6 +31,7 @@ import com.example.android.common.logger.LogFragment;
 import com.example.android.common.logger.LogWrapper;
 import com.example.android.common.logger.MessageOnlyLogFilter;
 
+import java.security.SignatureException;
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -63,7 +64,11 @@ public class MainActivity extends SampleActivityBase {
     @Override
     protected void onStart(){
         super.onStart();
-
+//        try {
+//          Log.i(TAG,"Test PTX: "+new JSONHandler("").execute().get())  ;
+//        } catch (ExecutionException | InterruptedException | SignatureException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @Override
